@@ -62,7 +62,7 @@ class Detect(nn.Module):
                 y[..., [0, 1, 2, 3, 4, 15]] = x[i][..., [0, 1, 2, 3, 4, 15]].sigmoid()
                 y[..., 5:15] = x[i][..., 5:15]
 
-                y[..., 0:2] = (y[..., 0:2] * 2.0 - 0.5 + self.grid[i].to(x[i].device)) * self.stride[i]  # xy
+                y[..., 0:2] = (y[..., 0:2] * 2.0 - 0.5 + grid[i].to(x[i].device)) * self.stride[i]  # xy
                 y[..., 2:4] = (y[..., 2:4] * 2) ** 2 * self.anchor_grid[i]  # wh
 
                 y[..., 5:7] = (
